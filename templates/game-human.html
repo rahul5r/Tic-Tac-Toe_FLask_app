@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #4CAF50;
+            padding: 0.5em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            padding: 2em;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container h1 {
+            margin: 0.5em 0;
+            font-size: 2em;
+            color: #4CAF50;
+        }
+        .container p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .butt {
+            background-color: #D3D3D3;
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .butt:hover {
+            background-color: #C0C0C0;
+            color: white;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            border: 2px solid black;
+            padding: 0;
+        }
+        .reset-button {
+            margin-top: 1em;
+            padding: 0.75em 1.5em;
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .reset-button:hover {
+            background-color: #C0C0C0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>Tic Tac Toe Game</h1>
+    </div>
+    <div class="container">
+        <h1>Tic-Tac-Toe Game</h1>
+        <form action="" method="POST">
+            <p>{{ turn }}'s Turn</p>
+            <table>
+                <tr>
+                    <td><button class="butt" type="submit" name="button" value="1">{{ board[0][0] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="2">{{ board[0][1] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="3">{{ board[0][2] }}</button></td>
+                </tr>
+                <tr>
+                    <td><button class="butt" type="submit" name="button" value="4">{{ board[1][0] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="5">{{ board[1][1] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="6">{{ board[1][2] }}</button></td>
+                </tr>
+                <tr>
+                    <td><button class="butt" type="submit" name="button" value="7">{{ board[2][0] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="8">{{ board[2][1] }}</button></td>
+                    <td><button class="butt" type="submit" name="button" value="9">{{ board[2][2] }}</button></td>
+                </tr>
+            </table>
+            <br>
+            {% if winner[0] == 'true' %}
+                <p>{{ winner[1] }} wins!</p>
+            {% elif winner == 'draw' %}
+                <p>It's a Draw</p>
+            {% endif %}
+
+            <button type="submit" name="reset" class="reset-button">Reset</button>
+            <br>
+            <br>
+            <a href="/" class="button">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>
